@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=/usr/bin/kgcalc
+Name=Desktop Calculator
+Comment= Kulina Calculator
+Keywords=calculation;arithmetic;scientific;financial;
+Type=Application
+Icon=/usr/share/kgcalc/kgcalc.png
+Terminal=false
+StartupNotify=false
+Categories=Accessories;Utility;Calculatork;

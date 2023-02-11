@@ -1,0 +1,17 @@
+int  kgcalcbutnbox1callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox2callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox3callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox4callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox5callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox6callback(int key,int i,void *Tmp) ;
+int  kgcalctextbox1callback(int key,int i,void *Tmp);
+int  kgcalcbutnbox7callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox8callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox9callback(int key,int i,void *Tmp) ;
+int  kgcalcbutnbox10callback(int key,int i,void *Tmp) ;
+int kgcalcinit(void *Tmp) ;
+int kgcalcCallBack(void *Tmp,void *tmp) ;
+int  kgcalcdslide1callback(int val,int i,void *Tmp);
+int kgcalccleanup(void *Tmp);
+int kgcalcCallBack(void *Tmp,void *tmp);
+int kgcalcResizeCallBack(void *Tmp);
