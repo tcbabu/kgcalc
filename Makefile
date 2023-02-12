@@ -20,6 +20,13 @@ kgcalcCallbacks.o	: kgcalcCallbacks.c
 	 $(CC) -c kgcalcCallbacks.c
 main.o	: main.c 
 	 $(CC) -c main.c
+
+tarball	: TARBALL/kgcalc
+	  mv TARBALL kgcalc-1.0
+	  tar czf kgcalc-1.0.tgz kgcalc-1.0
+	  mv kgcalc-1.0 TARBALL
+
 clean	:  
 	   rm -f *.o kgcalc
 	   rm -f TARBALL/kgcalc
+	   rm -f kgcalc-1.0.tgz
