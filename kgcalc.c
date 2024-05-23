@@ -55,15 +55,16 @@ void ModifykgcalcGc(Gclr *gc) {
    kgDefineColor(72,20,65,50);
    kgDefineColor(73,200,205,200);
    kgDefineColor(74,20,25,20);
-//   gc->txt_fill= 149;
    gc->cur_clr= 46;
    gc->GuiFontSize=12;
    gc->InputFontSize=9;
    gc->SplashCharColor=71;
    gc->SplashFillColor=72;
    gc->SplashFont=18;
-//   gc->txt_fill=73;
+   gc->txt_fill=73;
    gc->but_char=52;
+   gc->txt_fill= 51;
+   gc->txt_char=40;
 }
 int MakeImages(DIALOG *D){
   DIG *fid;
@@ -90,7 +91,7 @@ int MakeImages(DIALOG *D){
   kgRoundedRectangleFill(fid,0.,0.0,2*size-1,2*size-1,0,3,0.5);
   Offimg=kgGetResizedImage(fid);
   kgCloseImage(fid);
-
+  return 1;
 }
 int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   int GrpId=0,oitems=0,i,j;
@@ -139,7 +140,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn0[2].bkgr=59;
   butn0[2].butncode='3';
   butn0[3].sw=1;
-  strcpy(butn0[3].title,(char *)"+");
+  strcpy(butn0[3].title,(char *)"!h43!w42+");
   butn0[3].xpmn=NULL;
   butn0[3].xpmp=NULL;
   butn0[3].xpmh=NULL;
@@ -167,7 +168,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn0[6].bkgr=59;
   butn0[6].butncode='6';
   butn0[7].sw=1;
-  strcpy(butn0[7].title,(char *)"!w31-");
+  strcpy(butn0[7].title,(char *)"!w42-");
   butn0[7].xpmn=NULL;
   butn0[7].xpmp=NULL;
   butn0[7].xpmh=NULL;
@@ -195,7 +196,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn0[10].bkgr=59;
   butn0[10].butncode='9';
   butn0[11].sw=1;
-  strcpy(butn0[11].title,(char *)"!x !f355");
+  strcpy(butn0[11].title,(char *)"!x !z34!f355");
   butn0[11].xpmn=NULL;
   butn0[11].xpmp=NULL;
   butn0[11].xpmh=NULL;
@@ -223,7 +224,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn0[14].bkgr=63;
   butn0[14].butncode='=';
   butn0[15].sw=1;
-  strcpy(butn0[15].title,(char *)"!b !x!w34!x!x!x_!y!y!k!u!y!y.!x!d!r!x!x!k_!w12_!w21!r!y!y!y!y.");
+  strcpy(butn0[15].title,(char *)"/");
   butn0[15].xpmn=NULL;
   butn0[15].xpmp=NULL;
   butn0[15].xpmh=NULL;
@@ -455,7 +456,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
     1,1, 
     e6,
     1,1,
-    NULL,kgcalctextbox1callback,0,0,0,0 /* args,Call back */
+    NULL,kgcalctextbox1callback,9,0,0,0 /* args,Call back */
   };
   t6.type=1;
   strcpy(t6.Wid,(char *)"");
