@@ -1,14 +1,15 @@
 #include <kulina.h>
 #include "kgcalcCallbacks.h"
+#include "images.c"
 #if 0
 #define RED 200
 #define GREEN 215
 #define BLUE 200
 #else
 #if 0
-#define RED 200
-#define GREEN 220
-#define BLUE 200
+#define RED 220
+#define GREEN 240
+#define BLUE 220
 #else
 #define RED 220
 #define GREEN 235
@@ -50,13 +51,16 @@ void ModifykgcalcGc(Gclr *gc) {
    gc->FontSize =8;
    gc->Font=23;
 */
+#if 1
    kgDefineColor(79,150,180,180);
    kgDefineColor(71,200,255,250);
    kgDefineColor(72,20,65,50);
    kgDefineColor(73,200,205,200);
    kgDefineColor(74,20,25,20);
+#endif
    gc->cur_clr= 46;
-   gc->GuiFontSize=12;
+   gc->GuiFontSize=10;
+   gc->FontSize =9;
    gc->InputFontSize=9;
    gc->SplashCharColor=71;
    gc->SplashFillColor=72;
@@ -64,7 +68,9 @@ void ModifykgcalcGc(Gclr *gc) {
    gc->txt_fill=73;
    gc->but_char=52;
    gc->txt_fill= 51;
-   gc->txt_char=40;
+   gc->txt_char=48;
+   gc->fill_clr=54;
+   gc->ButtonFont = 44;
 }
 int MakeImages(DIALOG *D){
   DIG *fid;
@@ -97,6 +103,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   int GrpId=0,oitems=0,i,j;
   DIA *d=NULL,*dtmp;
   BUT_STR  *butn0=NULL; 
+#if 1
   kgDefineColor(59,RED,GREEN,BLUE);
   kgDefineColor(60,RED,GREEN,BLUE);
   kgDefineColor(61,RED,GREEN,BLUE);
@@ -106,6 +113,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   kgDefineColor(65,RED,GREEN,BLUE);
   kgDefineColor(66,RED,GREEN,BLUE);
   kgDefineColor(67,RED,GREEN,BLUE);
+#endif
   MakeImages(D);
 #if 0
   kgDefineColor(59,225,220,195);
@@ -141,6 +149,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn0[2].butncode='3';
   butn0[3].sw=1;
   strcpy(butn0[3].title,(char *)"!h43!w42+");
+  strcpy(butn0[3].title,(char *)"!f24+");
   butn0[3].xpmn=NULL;
   butn0[3].xpmp=NULL;
   butn0[3].xpmh=NULL;
@@ -197,6 +206,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn0[10].butncode='9';
   butn0[11].sw=1;
   strcpy(butn0[11].title,(char *)"!x !z34!f355");
+  strcpy(butn0[11].title,(char *)"!f24x");
   butn0[11].xpmn=NULL;
   butn0[11].xpmp=NULL;
   butn0[11].xpmh=NULL;
@@ -269,8 +279,9 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn1[2].bkgr=61;
   butn1[2].butncode='P';
   butn1[3].sw=1;
-  strcpy(butn1[3].title,(char *)"!z54!f35\"");
-  butn1[3].xpmn=NULL;
+  strcpy(butn1[3].title,(char *)"!f45\"");
+  butn1[3].title[0]='\0';
+  butn1[3].xpmn=(void *)&actions_str;;
   butn1[3].xpmp=NULL;
   butn1[3].xpmh=NULL;
   butn1[3].bkgr=60;
@@ -350,6 +361,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn2= (BUT_STR *)malloc(sizeof(BUT_STR)*1);
   butn2[0].sw=1;
   strcpy(butn2[0].title,(char *)"deg!f352!f23rad");
+  strcpy(butn2[0].title,(char *)"!f25deg2rad");
   butn2[0].xpmn=NULL;
   butn2[0].xpmp=NULL;
   butn2[0].xpmh=NULL;
@@ -374,6 +386,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn3= (BUT_STR *)malloc(sizeof(BUT_STR)*1);
   butn3[0].sw=1;
   strcpy(butn3[0].title,(char *)"rad!f352!f23deg");
+  strcpy(butn3[0].title,(char *)"!f25rad2deg");
   butn3[0].xpmn=NULL;
   butn3[0].xpmp=NULL;
   butn3[0].xpmh=NULL;
@@ -397,7 +410,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   BUT_STR  *butn4=NULL; 
   butn4= (BUT_STR *)malloc(sizeof(BUT_STR)*1);
   butn4[0].sw=1;
-  strcpy(butn4[0].title,(char *)"!f36p");
+  strcpy(butn4[0].title,(char *)"!f45p");
   butn4[0].xpmn=NULL;
   butn4[0].xpmp=NULL;
   butn4[0].xpmh=NULL;
@@ -486,6 +499,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn7[2].butncode='~';
   butn7[3].sw=1;
   strcpy(butn7[3].title,(char *)"!x+!b!w32_");
+  strcpy(butn7[3].title,(char *)"+/-");
   butn7[3].xpmn=NULL;
   butn7[3].xpmp=NULL;
   butn7[3].xpmh=NULL;
@@ -521,6 +535,7 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn7[7].butncode='~';
   butn7[8].sw=1;
   strcpy(butn7[8].title,(char *)"!f353!f23 !b!S__!e");
+  strcpy(butn7[8].title,(char *)"Sqrt");
   butn7[8].xpmn=NULL;
   butn7[8].xpmp=NULL;
   butn7[8].xpmh=NULL;
@@ -528,28 +543,36 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn7[8].butncode='~';
   butn7[9].sw=1;
   strcpy(butn7[9].title,(char *)"x!S2!e");
-  butn7[9].xpmn=NULL;
+  strcpy(butn7[9].title,(char *)"Sqr");
+  butn7[9].title[0]='\0';
+  butn7[9].xpmn=(void *)&xpow2_str;;
   butn7[9].xpmp=NULL;
   butn7[9].xpmh=NULL;
   butn7[9].bkgr=66;
   butn7[9].butncode='~';
   butn7[10].sw=1;
   strcpy(butn7[10].title,(char *)"x!Sy!e");
-  butn7[10].xpmn=NULL;
+  strcpy(butn7[10].title,(char *)"xpowy");
+  butn7[10].title[0]='\0';
+  butn7[10].xpmn=(void *)&xpowy_str;
   butn7[10].xpmp=NULL;
   butn7[10].xpmh=NULL;
   butn7[10].bkgr=63;
   butn7[10].butncode='~';
   butn7[11].sw=1;
   strcpy(butn7[11].title,(char *)"!x!z67!k!x!x!x!z231!r!x!x!x_!b!y!y!y!d!z13 !z31!z32x");
+  strcpy(butn7[11].title,(char *)"1/x");
+//  butn7[11].title[0]='\0';
   butn7[11].xpmn=NULL;
   butn7[11].xpmp=NULL;
   butn7[11].xpmh=NULL;
   butn7[11].bkgr=66;
   butn7[11].butncode='~';
   butn7[12].sw=1;
-  strcpy(butn7[12].title,(char *)"e!Sx!e");
-  butn7[12].xpmn=NULL;
+//  strcpy(butn7[12].title,(char *)"e!Sx!e");
+//  strcpy(butn7[12].title,(char *)"epowx");
+  butn7[12].title[0]='\0';
+  butn7[12].xpmn=(void *)&epowx_str;;
   butn7[12].xpmp=NULL;
   butn7[12].xpmh=NULL;
   butn7[12].bkgr=66;
@@ -563,7 +586,8 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn7[13].butncode='~';
   butn7[14].sw=1;
   strcpy(butn7[14].title,(char *)"log!s10!ex");
-  butn7[14].xpmn=NULL;
+  butn7[14].title[0]='\0';
+  butn7[14].xpmn=(void *)&log10_str;
   butn7[14].xpmp=NULL;
   butn7[14].xpmh=NULL;
   butn7[14].bkgr=66;
@@ -633,15 +657,17 @@ int kgcalcGroup( DIALOG *D,void **v,void *pt) {
   butn10= (BUT_STR *)malloc(sizeof(BUT_STR)*1);
   butn10[0].sw=1;
   strcpy(butn10[0].title,(char *)"!f35 !b!!");
-  butn10[0].xpmn=NULL;
+//  strcpy(butn10[0].title,(char *)"!f46p");
+  butn10[0].title[0]='\0';
+  butn10[0].xpmn=(void *)&edit_cut_str;;
   butn10[0].xpmp=NULL;
   butn10[0].xpmh=NULL;
   butn10[0].bkgr=-1;
   butn10[0].butncode='~';
   DIN b10 = { 
     'n',
-    467,52,  
-    489,82,
+    467,54,  
+    489,84,
     0,0,  
     19, 
     22, 

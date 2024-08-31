@@ -81,6 +81,7 @@ static int calcUpdate(void *tmp,double val) {
  }
 // else sprintf(dspbuf,"%d",ival);
  kgSplash(tmp,mitem,dspbuf);
+ return 1;
 }
 void Splashmsg(char * msg) {
   char buff[300];
